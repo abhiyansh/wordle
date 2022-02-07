@@ -51,7 +51,7 @@ function cliGame(){
 }
 
 function playOneRound(guessWord){
-    if(roundIndex==NUM_ROUNDS) return;
+    if(roundIndex==NUM_ROUNDS || gameOver==true) return;
     
     guessWord = guessWord.toLowerCase();
     
@@ -72,7 +72,10 @@ function playOneRound(guessWord){
     
     roundIndex++;
 
-    if(actualWord==guessWord) document.querySelector('.fina-result').textContent=`Game over, you win. Refresh page to play again`;
+    if(actualWord==guessWord){
+        document.querySelector('.final-result').textContent=`Game over, you win. Refresh page to play again`;
+        gameOver=true;
+    }
     else if(roundIndex==NUM_ROUNDS) document.querySelector('.final-result').textContent=`Game over, you lose. Actual Word: ${actualWord}. Refresh page to play again`;
 }
 
@@ -111,6 +114,7 @@ let WORD_LENGTH=5;
 let actualWord = generateRandomWord(words, WORD_LENGTH);
 const NUM_ROUNDS = 6;
 let roundIndex = 0;
+let gameOver = false;
 
 let input = document.querySelector('#input-guess');
 input.addEventListener("keyup", function(event) {
