@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+    /* outline: red solid 1px; */
+}
+
+body{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+}
+
+.grid-container{
+    width: 256px;
+    height: 256px;
+    outline: black solid 2px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
+}
+
+.grid-cell{
+    outline: black solid 1px;
+    text-transform: uppercase;
+}
+
+.letter-exists{
+    background-color: yellow;
+}
+
+.letter-correct{
+    background-color: green;
+}
+
+.letter-incorrect{
+    background-color: grey;
+}
