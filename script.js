@@ -60,15 +60,18 @@ function playOneRound(guessWord){
         return;
     }
     
-    let actualWordSet = new Set(actualWord);
+    let wordsLeft = new Set();
+    for(let i = 0; i<actualWord.length; i++) (actualWord.charAt(i)!=guessWord.charAt(i)) && wordsLeft.add(actualWord.charAt(i));
     
     for(let i = 0; i<actualWord.length; i++){
         let currDiv = actualGrid[roundIndex][i];
         currDiv.textContent = guessWord.charAt(i);
         if(actualWord.charAt(i)==guessWord.charAt(i)) currDiv.classList.add('letter-correct');
-        else if(actualWordSet.has(guessWord.charAt(i)))currDiv.classList.add('letter-exists');
+        else if(wordsLeft.has(guessWord.charAt(i))){
+            currDiv.classList.add('letter-exists');
+            wordsLeft.delete(guessWord.charAt(i));
+        }
         else currDiv.classList.add('letter-incorrect');
-        actualWordSet.delete(guessWord.charAt(i));
     }
     
     roundIndex++;
