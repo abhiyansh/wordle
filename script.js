@@ -68,6 +68,7 @@ function playOneRound(guessWord){
         if(actualWord.charAt(i)==guessWord.charAt(i)) currDiv.classList.add('letter-correct');
         else if(actualWordSet.has(guessWord.charAt(i)))currDiv.classList.add('letter-exists');
         else currDiv.classList.add('letter-incorrect');
+        actualWordSet.delete(guessWord.charAt(i));
     }
     
     roundIndex++;
