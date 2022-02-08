@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;
-    /* outline: red solid 1px; */
 }
 
 body{
@@ -9,19 +8,25 @@ body{
     flex-direction: column;
     align-items: center;
     gap: 50px;
+    background-color: black;
+}
+
+label[for="guess"],
+.final-result {
+    color: white;
 }
 
 .grid-container{
     width: 256px;
     height: 256px;
-    outline: black solid 2px;
+    outline: white solid 2px;
     display: flex;
     flex-wrap: wrap;
     margin: 10px;
 }
 
 .grid-cell{
-    outline: black solid 1px;
+    outline: white solid 1px;
     text-transform: uppercase;
 }
 
